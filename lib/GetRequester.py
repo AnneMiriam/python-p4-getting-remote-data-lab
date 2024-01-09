@@ -7,7 +7,14 @@ class GetRequester:
         self.url = url
 
     def get_response_body(self):
-        pass
+        response = requests.get(self.url)
+        return response.content
 
     def load_json(self):
-        pass
+        # !👇🏻 this way also passed the tests
+        # json_list = []
+        # lists = json.loads(self.get_response_body())
+        # for list in lists:
+        #     json_list.append(list)
+        # return json_list
+        return json.loads(self.get_response_body())
